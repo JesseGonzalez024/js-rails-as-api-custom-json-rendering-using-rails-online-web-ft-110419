@@ -3,6 +3,7 @@ class BirdsController < ApplicationController
     @birds = Bird.all
     render json: birds, only: [:id, :name, :species]
   end
+  
   def show
     bird = Bird.find_by(id: params[:id])
     if bird
@@ -11,6 +12,5 @@ class BirdsController < ApplicationController
       render json: { message: 'Bird not found' }
     end
   end
-
 
 end
